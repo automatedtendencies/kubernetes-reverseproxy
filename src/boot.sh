@@ -21,4 +21,5 @@ echo "[nginx] confd is listening for changes on etcd..."
 echo "[nginx] starting nginx service..."
 service nginx start
 
-
+# Have to loop in order to keep the container alive.
+while true; do sleep 1d; done

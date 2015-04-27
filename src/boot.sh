@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "[********] File is at least starting."
+
 # Fail hard and fast
 set -eo pipefail
 

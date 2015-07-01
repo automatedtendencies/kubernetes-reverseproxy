@@ -25,6 +25,9 @@ RUN add-apt-repository -y ppa:nginx/stable && \
     apt-get install --no-install-recommends -qy nginx && \
     chown -R www-data:www-data /var/lib/nginx && \
     rm -f /etc/nginx/sites-available/default
+    
+# Install debug utilities
+RUN apt-get install -y telnet wget curl
 
 ADD ./src/boot.sh /opt/boot.sh
 RUN chmod +x /opt/boot.sh

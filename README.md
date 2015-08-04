@@ -100,16 +100,26 @@ Example kubernetes service:
 
 ```json
 {
-  "id": "wordpress-site",
-  "kind": "Service",
-  "apiVersion": "v1beta1",
-  "port": 80,
-  "containerPort": 80,
-  "selector": {
-    "name": "app-instance"
-  },
-  "annotations": {
-	"kubernetesReverseproxy":"{\"hosts\": [{\"host\": \"some.host.name\", \"port\": \"port number\"}]}"
-  }
+    "kind":"Service",
+    "apiVersion":"v1beta3",
+    "metadata":{
+        "name":"frontend",
+        "labels":{
+            "name":"frontend"
+        },
+        "annotations":{"kubernetesReverseproxy":"{\"hosts\": [{\"host\": \"site1.com\", \"port\": 80}]}"}
+    },
+    "spec":{
+        "ports": [
+            {
+                "port":80,
+                "containerPort":80
+            }
+        ],
+        "selector":{
+            "name":"frontend"
+        }
+    }
 }
+
 ```
